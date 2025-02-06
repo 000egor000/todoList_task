@@ -80,8 +80,8 @@ const todoSlice = createSlice({
         state.loading.add = 0;
         state.error = action.error?.message || null;
       })
-      .addCase(updateTodoAsync.pending, (state) => {
-        state.loading.update = 1;
+      .addCase(updateTodoAsync.pending, (state, action) => {
+        state.loading.update = action.meta.arg;
       })
       .addCase(
         updateTodoAsync.fulfilled,
@@ -99,8 +99,8 @@ const todoSlice = createSlice({
         state.error = action.error?.message || null;
       })
 
-      .addCase(deleteTodoAsync.pending, (state) => {
-        state.loading.delete = 1;
+      .addCase(deleteTodoAsync.pending, (state, action) => {
+        state.loading.delete = action.meta.arg;
       })
       .addCase(
         deleteTodoAsync.fulfilled,
