@@ -6,6 +6,9 @@ import App from "./App.tsx";
 import { ProviderAntd } from "./provider/ProviderAntd.tsx";
 import { Provider } from "react-redux";
 import store from "./store";
+import { registerSW } from "virtual:pwa-register";
+
+registerSW({ immediate: true });
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
